@@ -1,17 +1,25 @@
 #!/bin/bash
+set -e
 
-if [[ ! -z "${PLUGIN_PINNING_SERVICE}" ]]; then
-    PIN="-p $PLUGIN_PINNING_SERVICE"
-else
-    PIN="-p infura"
+IPFS_DEPLOY_OPTIONS=""
+
+if [ -n "$PLUGIN_SORUCE" ]
+then
+    IPFS_DEPLOY_OPTIONS="$PLUGIN_SOURCE"
 fi
 
-if [[ ! -z "${PLUGIN_DNS_SERVICE}" ]]; then
-    DSN="-d $PLUGIN_DNS_SERVICE"
-else
-    DNS=""
+IPFS_DEPLOY_OPTIONS="$IPFS_DEPLOY_OPTIONS --no-clipboard"
+
+if [ -n "$PLUGIN_PINNING_SERVICE" ]
+then
+    IPFS_DEPLOY_OPTIONS="$IPFS_DEPLOY_OPTIONS -p $PLUGIN_PINNING_SERVICE"
 fi
 
-hash=`npx ipfs-deploy $PLUGIN_SOURCE --no-clipboard $PIN $DNS | tail -1`
+if [ -n "$PLUGIN_DNS_SERVICE" ]
+then
+    IPFS_DEPLOY_OPTIONS="$IPFS_DEPLOY_OPTIONS -d $PLUGIN_DNS_SERVICE"
+fi
+
+hash=`npx ipfs-deploy $IPFS_DEPLOY_OPTIONS | tail -1`
 echo $hash >> .hash
 
