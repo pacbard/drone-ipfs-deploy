@@ -20,6 +20,11 @@ then
     IPFS_DEPLOY_OPTIONS="$IPFS_DEPLOY_OPTIONS -d $PLUGIN_DNS_SERVICE"
 fi
 
+if [ -n "$PLUGIN_OPTIONS" ]
+then
+    IPFS_DEPLOY_OPTIONS="$IPFS_DEPLOY_OPTIONS $PLUGIN_OPTIONS"
+fi
+
 hash=`npx ipfs-deploy $IPFS_DEPLOY_OPTIONS | tail -1`
 echo $hash >> .hash
 
