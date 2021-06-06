@@ -3,7 +3,7 @@ set -e
 
 IPFS_DEPLOY_OPTIONS=""
 
-if [ -n "$PLUGIN_SORUCE" ]
+if [ -n "$PLUGIN_SOURCE" ]
 then
     IPFS_DEPLOY_OPTIONS="$PLUGIN_SOURCE"
 fi
