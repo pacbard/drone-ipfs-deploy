@@ -6,6 +6,42 @@
 
 A drone plugin to publish a folder on the ipfs network.
 
+## Usage
+
+There are two ways to deploy.
+
+### From docker
+
+Deploy the working directory to an IPFS pinning service.
+
+See `ipfs-deploy` [usage page](https://github.com/ipfs-shipyard/ipfs-deploy/blob/master/md/usage.md) to learn more about 
+which pinning or dns services are available and which environment variables to set for each.
+
+```bash
+docker run --rm \
+  -e PLUGIN_SOURCE=folder/ \
+  -e PLUGIN_PINNING_SERVICE=service_name \
+  -e PLUGIN_DNS_SERVICE=dns_name \
+  -e IPFS_DEPLOY_XXX__XXX=option \
+  -v $(pwd):$(pwd) \
+  -w $(pwd) \
+  pacbard/ipfs-deploy
+```
+
+### From Drone CI
+
+```yaml
+pipeline:
+  pin:
+    name: pin to ipfs service
+    image: pacbard/ipfs-deploy
+    source: folder
+    pinning_service: service_name
+    dns_service: dns_service_name
+    environment:
+      - IPFS_DEPLOY_XXX__XXX: ipfs options
+```
+
 ## License - MIT
 
 Copyright 2021 pacbard
