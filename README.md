@@ -1,8 +1,8 @@
-# Drone ipfs-deploy - v10.1.0
+# Drone ipfs-deploy
 
 [![Build Status](https://img.shields.io/drone/build/pacbard/drone-ipfs-deploy?logo=drone&server=https%3A%2F%2Fdrone.pacbard.duckdns.org)](https://drone.pacbard.duckdns.org/pacbard/drone-ipfs-deploy/)
 [![GitHub tag](https://img.shields.io/github/v/tag/pacbard/drone-ipfs-deploy?logo=github)](https://github.com/pacbard/drone-ipfs-deploy/tags)
-[![Docker Pulls](https://img.shields.io/docker/pulls/pacbard/ipfs-deploy?logo=docker)](https://hub.docker.com/repository/docker/pacbard/ipfs-deploy)
+[![Docker Pulls](https://img.shields.io/docker/pulls/pacbard/drone-ipfs-deploy?logo=docker)](https://hub.docker.com/repository/docker/pacbard/drone-ipfs-deploy)
 
 A drone plugin to publish a folder on the ipfs network.
 
@@ -25,7 +25,7 @@ docker run --rm \
   -e IPFS_DEPLOY_XXX__XXX=option \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
-  pacbard/ipfs-deploy
+  pacbard/drone-ipfs-deploy
 ```
 
 ### From Drone CI
@@ -34,7 +34,7 @@ docker run --rm \
 pipeline:
   pin:
     name: pin to ipfs service
-    image: pacbard/ipfs-deploy
+    image: pacbard/drone-ipfs-deploy
     settings:
       source: folder
       pinning_service: service_name

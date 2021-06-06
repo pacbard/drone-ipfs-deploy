@@ -7,7 +7,7 @@ steps:
   - name: build
     image: plugins/docker
     settings:
-      repo: pacbard/ipfs-deploy
+      repo: pacbard/drone-ipfs-deploy
       auto_tag: true
       username:
         from_secret: docker_username
