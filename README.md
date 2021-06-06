@@ -35,9 +35,10 @@ pipeline:
   pin:
     name: pin to ipfs service
     image: pacbard/ipfs-deploy
-    source: folder
-    pinning_service: service_name
-    dns_service: dns_service_name
+    settings:
+      source: folder
+      pinning_service: service_name
+      dns_service: dns_service_name
     environment:
       - IPFS_DEPLOY_XXX__XXX: ipfs options
 ```
