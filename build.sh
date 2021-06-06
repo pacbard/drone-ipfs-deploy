@@ -12,6 +12,6 @@ else
     DNS=""
 fi
 
-hash=`npx ipfs-deploy $SOURCE $PIN $DNS | tail -1`
-printf "\nIPFS root hash: $hash"
+hash=`npx ipfs-deploy $SOURCE --no-clipboard $PIN $DNS | tail -1`
 echo $hash >> .hash
+
