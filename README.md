@@ -1,7 +1,7 @@
 # Drone ipfs-deploy - v10.1.0
 
 [![Build Status](https://img.shields.io/drone/build/pacbard/drone-ipfs-deploy?logo=drone&server=https%3A%2F%2Fdrone.pacbard.duckdns.org)](https://drone.pacbard.duckdns.org/pacbard/drone-ipfs-deploy/)
-[![GitHub release](https://img.shields.io/github/release/pacbard/drone-ipfs-deploy.svg)](https://github.com/pacbard/drone-ipfs-deploy/releases/latest)
+[![GitHub release](https://img.shields.io/github/release/pacbard/drone-ipfs-deploy.svg?logo=github)](https://github.com/pacbard/drone-ipfs-deploy/releases/latest)
 [![Docker Pulls](https://img.shields.io/docker/pulls/pacbard/ipfs-deploy?logo=docker)](https://hub.docker.com/repository/docker/pacbard/ipfs-deploy)
 
 A drone plugin to publish a folder on the ipfs network.
