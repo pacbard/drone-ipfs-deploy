@@ -19,9 +19,9 @@ which pinning or dns services are available and which environment variables to s
 
 ```bash
 docker run --rm \
-  -e PLUGIN_SOURCE=folder/ \
-  -e PLUGIN_PINNING_SERVICE=service_name \
-  -e PLUGIN_DNS_SERVICE=dns_name \
+  -e PLUGIN_PATH=folder/ \
+  -e PLUGIN_PINNER=service_name \
+  -e PLUGIN_DNS=dns_name \
   -e IPFS_DEPLOY_XXX__XXX=option \
   -v $(pwd):$(pwd) \
   -w $(pwd) \
@@ -36,22 +36,22 @@ pipeline:
     name: pin to ipfs service
     image: pacbard/drone-ipfs-deploy
     settings:
-      source: folder
-      pinning_service: service_name
-      dns_service: dns_service_name
+      path: folder
+      pinner: service_name
+      dns: dns_service_name
     environment:
       - IPFS_DEPLOY_XXX__XXX: ipfs options
 ```
 
 # Parameter Reference
 
-source
+path
 : Path to be uploaded to IPFS. If not set, `ipfs-deploy` will try to search for common output directories in the working directory.
 
-pinning_service
+pinner
 : Name of the pinning service to use. Choices are `dappnode`, `fission`, `infura`, `ipfs-cluster`, and `pinata`. Note that some pinning services require certain environment variable to be set. See [usage](https://github.com/ipfs-shipyard/ipfs-deploy/blob/master/md/usage.md) page for more information.
 
-dns_service
+dns
 : Name of the dns service to use.
 
 options
