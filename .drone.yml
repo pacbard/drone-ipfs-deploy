@@ -1,7 +1,11 @@
 ---
 kind: pipeline
 type: docker
-name: build docker image
+name: linux-amd64
+
+platform:
+  os: linux
+  arch: amd64
 
 steps:
   - name: build
@@ -9,9 +13,55 @@ steps:
     settings:
       repo: pacbard/drone-ipfs-deploy
       auto_tag: true
+      auto_tag_suffix: linux-amd64
       username:
         from_secret: docker_username
       password:
         from_secret: docker_password
+
+---
+kind: pipeline
+type: docker
+name: linux-arm64
+
+platform:
+  os: linux
+  arch: arm64
+
+steps:
+  - name: build
+    image: techknowlogick/drone-docker
+    settings:
+      repo: pacbard/drone-ipfs-deploy
+      auto_tag: true
+      auto_tag_suffix: linux-arm64
+      username:
+        from_secret: docker_username
+      password:
+        from_secret: docker_password
+
+---
+kind: pipeline
+name: notifications
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: manifest
+  pull: always
+  image: plugins/manifest:1
+  settings:
+    ignore_missing: true
+    spec: manifest.tmpl
+    username:
+      from_secret: docker_username
+    password:
+      from_secret: docker_password
+
+depends_on:
+- linux-amd64
+- linux-arm64
 
 ...
