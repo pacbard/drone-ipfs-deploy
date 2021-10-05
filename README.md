@@ -4,7 +4,7 @@
 [![ipfs-deploy Upstream Version](https://img.shields.io/github/v/tag/pacbard/drone-ipfs-deploy?label=ipfs-deploy%20version&logo=github)](https://github.com/pacbard/drone-ipfs-deploy/tags)
 [![Docker Pulls](https://img.shields.io/docker/pulls/pacbard/drone-ipfs-deploy?logo=docker)](https://hub.docker.com/repository/docker/pacbard/drone-ipfs-deploy)
 
-A drone plugin to publish a folder on the ipfs network.
+A drone plugin to publish a folder on the ipfs network using [ipfs-deploy](https://github.com/ipfs-shipyard/ipfs-deploy).
 
 # Usage
 
