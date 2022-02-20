@@ -1,6 +1,6 @@
 FROM node:slim
 
-RUN yarn global add ipfs-deploy@11.0.1
+RUN yarn global add ipfs-deploy@11.1.0
 
 ADD build.sh /bin/
 RUN chmod +x /bin/build.sh
